@@ -59,11 +59,19 @@ namespace Sở_Thú_Xì_Gòn
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void mnuClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void mnuLoad_Click(object sender, EventArgs e)
+        {
             StreamReader reader = new StreamReader("Thumoi.txt");
-
             if (reader == null) return;
-
-            string input;
+            string input = null;
             while ((input = reader.ReadLine()) != null)
             {
                 lstThuMoi.Items.Add(input);
@@ -80,9 +88,15 @@ namespace Sở_Thú_Xì_Gòn
             }
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-
+            lblTime.Text = string.Format("Bây giờ là {0}:{1}:{2} ngày {3} tháng {4} năm {5}", 
+                                          DateTime.Now.Hour,
+                                          DateTime.Now.Minute,
+                                          DateTime.Now.Second,
+                                          DateTime.Now.Day,
+                                          DateTime.Now.Month,
+                                          DateTime.Now.Year);
         }
     }
 }
