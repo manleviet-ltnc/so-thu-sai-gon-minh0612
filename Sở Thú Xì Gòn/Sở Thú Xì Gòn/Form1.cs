@@ -104,7 +104,7 @@ namespace Sở_Thú_Xì_Gòn
         private void btnDel_Click(object sender, EventArgs e)
         {
 
-            lstThuMoi.Items.RemoveAt(lstThuMoi.SelectedIndex);
+            lstDanhSach.Items.RemoveAt(lstDanhSach.SelectedIndex);
             
         }
         private void Form1_FormClosing(Object sender, FormClosingEventArgs e)
