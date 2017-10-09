@@ -57,6 +57,16 @@ namespace Sở_Thú_Xì_Gòn
 
             write.Close();
         }
+
+        public void Del(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn xóa danh sách", "Delete data", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+
+            if (result == DialogResult.OK)
+            {
+                lstThuMoi.Text = "Xóa danh sách";
+            }
+        } 
         private void Form1_Load(object sender, EventArgs e)
         {
 
