@@ -43,7 +43,18 @@ namespace Sở_Thú_Xì_Gòn
             {
                 ListBox lb = (ListBox)sender;
                 lb.Items.Add(e.Data.GetData(DataFormats.Text));
+
+                string str = (string)e.Data.GetData(DataFormats.StringFormat);
+                if (!lstDanhSach.Items.Contains(str))
+                {
+                    lstDanhSach.Items.Insert(0, str);
+                }
+                else
+                {
+                    MessageBox.Show("Danh Sách thú bị trùng", "Không", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }        
             }
+
         }
         private void Save(object sender, EventArgs e)
         {
@@ -87,7 +98,7 @@ namespace Sở_Thú_Xì_Gòn
                 {
                     lstDanhSach.Items.Add(input);
                 }
-            }
+            }   
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -116,6 +127,11 @@ namespace Sở_Thú_Xì_Gòn
             messageBoxCS.AppendFormat("{0} = {1}", "Cancel", e.Cancel);
             messageBoxCS.AppendLine();
             MessageBox.Show(messageBoxCS.ToString(), "FormClosing Event");
+        }
+
+        private void lstDanhSach_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
