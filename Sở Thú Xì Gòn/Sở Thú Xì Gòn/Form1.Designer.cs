@@ -160,7 +160,7 @@
             this.btnDel.Size = new System.Drawing.Size(75, 43);
             this.btnDel.TabIndex = 9;
             this.btnDel.UseVisualStyleBackColor = true;
-            this.btnDel.Click += new System.EventHandler(this.Del);
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // menuStrip1
             // 

@@ -58,15 +58,7 @@ namespace Sở_Thú_Xì_Gòn
             write.Close();
         }
 
-        public void Del(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Bạn có muốn xóa danh sách", "Delete data", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
-
-            if (result == DialogResult.OK)
-            {
-                lstThuMoi.Text = "Xóa danh sách";
-            }
-        } 
+        
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -107,6 +99,23 @@ namespace Sở_Thú_Xì_Gòn
                                           DateTime.Now.Day,
                                           DateTime.Now.Month,
                                           DateTime.Now.Year);
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+
+            lstThuMoi.Items.RemoveAt(lstThuMoi.SelectedIndex);
+            
+        }
+        private void Form1_FormClosing(Object sender, FormClosingEventArgs e)
+        {
+
+            System.Text.StringBuilder messageBoxCS = new System.Text.StringBuilder();
+            messageBoxCS.AppendFormat("{0} = {1}", "CloseReason", e.CloseReason);
+            messageBoxCS.AppendLine();
+            messageBoxCS.AppendFormat("{0} = {1}", "Cancel", e.Cancel);
+            messageBoxCS.AppendLine();
+            MessageBox.Show(messageBoxCS.ToString(), "FormClosing Event");
         }
     }
 }
